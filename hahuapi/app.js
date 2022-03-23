@@ -9,7 +9,7 @@ var hahuRouter = require('./routes/hahu');
 
 var app = express();
 var mongoose = require('mongoose')
-const MONGODB_URI="mongodb://127.0.0.1:27017";
+const MONGODB_URI="mongodb://127.0.0.1:27017/hahu";
 
 mongoose
     	 	.connect(MONGODB_URI, { useNewUrlParser: true })
