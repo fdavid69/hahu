@@ -1,7 +1,10 @@
 const express = require('express');
+const { response } = require('../app');
 const router= express.Router();
 
-const  Hirdetes= require('../models/hirdetes');
+const Hirdetes= require('../models/hirdetes');
+const Kategoria= require('../models/kategoria');
+
 
 router.post('/', function (req,res,next){
     
@@ -44,5 +47,23 @@ router.delete("/:id",function (req,res,next){
         'statuss': 'deleted'
     })
     .catch(err => console.log(err))
+})
+router.get("/:mezo",function(req,res,next){
+const mezo= req.params.mezo;
+Hirdetes
+.find()
+.populate('kategoria', '-_id')
+.sort({[mezo]: 1 })
+.then(response => {
+    res.status(200).json(mezok);
+})
+.catch(err => console.log(err));
+})
+router.delete("/:id",function(req,res,next){
+    const id =req.params.id;
+    Hirdetes
+    .findByIdAndDelete(id)
+    .then(res.status(200).json({'status': 'deleted'}))
+    .catch(err =>console.log(err))
 })
 module.exports = router;

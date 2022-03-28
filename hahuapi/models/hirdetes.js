@@ -8,7 +8,8 @@ const hirdetesSchema= new Schema({
     kategoria:
     {
         type: Number,
-        default: 1
+        default: 1,
+        ref:'Kategoria'
     },
     cim:{
     type:String,

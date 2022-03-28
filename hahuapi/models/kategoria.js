@@ -2,10 +2,9 @@ const mongoose= require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const kategoiaSchema= new Schema({
+const kategoriaSchema= new Schema({
     
-    _id: Number,
-    kategoria:Number,
+    _id: Number,   
     nev:{
     type:String,
     required: true,
@@ -16,4 +15,4 @@ const kategoiaSchema= new Schema({
 
 })
 
-module.exports= mongoose.model('Kategoria',kategoriaSchema,'kaategoriak');
+module.exports= mongoose.model('Kategoria',kategoriaSchema,'kategoriak');
